@@ -23,11 +23,6 @@ app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/comment", commentRoute);
 
-app.use(express.static(path.join(__dirname, "..", "client", "dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));
-});
 
 app.listen(port, () => {
   connectToMongoDB();
