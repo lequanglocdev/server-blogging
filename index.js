@@ -12,10 +12,12 @@ const { connectToMongoDB } = require("./db/connectToMongoDB");
 const app = express();
 
 const port = process.env.PORT || 8888;
-const corsOptions = {
-  origin: "https://blog-web-25c4.onrender.com/", 
-  credentials: true, 
-};
+app.use(
+  cors({
+    origin: "*" || "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(cors(corsOptions));
 
 app.use(express.json());
